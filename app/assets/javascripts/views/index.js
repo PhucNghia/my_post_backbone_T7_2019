@@ -1,9 +1,14 @@
 MyPost.Views.PostsIndex = Backbone.View.extend({
-  template: JST['organizations/index'],
+  template: JST['posts/index'],
 
   events: {},
 
   render: function() {
+    debugger
+    var posts = new MyPost.Collections.Posts();
+    posts.fetch();
+
+    return this.$el.html(this.template({posts: posts}));
     // $('.nav-item .nav-link').removeClass('active');
     // $('.organization-nav-link').addClass('active');
 
