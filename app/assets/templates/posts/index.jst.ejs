@@ -1,1 +1,18 @@
-posts: <%= posts %>
+<h1>List Posts</h1>
+
+<table id="posts-table", style="border: 1px solid black;">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <% _.each(posts, function(post) { %>
+    <tr>
+      <td><%= post.get('title') %></td>
+      <td><%= post.get('body') %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<br/>
+
+<a href="#/new">New Post</a>

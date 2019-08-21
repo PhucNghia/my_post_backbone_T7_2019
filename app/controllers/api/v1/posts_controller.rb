@@ -4,11 +4,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = Post.order('created_at DESC')
-    render json: {
-      status: true,
-      data: @posts
-    }, 
-    status: :ok
+    render json: @posts.as_json, status: :ok
   end
 
   def show

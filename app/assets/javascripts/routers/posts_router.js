@@ -1,17 +1,17 @@
 MyPost.Routers.Posts = Backbone.Router.extend({
   routes: {
-    '': 'index',
+    '': 'index'
   },
 
   index: function() {
-    // var organizationsIndexView = new Jooto.Views.OrganizationsIndex({el: '#organizations-content'});
-    // organizationsIndexView.render();
-    alert('index');
-    var postIndexView = new MyPost.Views.PostsIndex({el: '#container'});
-    return postIndexView.render();
+    this.collection = new MyPost.Collections.Posts();
+    this.collection.fetch({reset: true});
+
+    this.postIndexView = new MyPost.Views.PostsIndex({el: '#container', collection: this.collection});
   },
 
   start: function() {
     Backbone.history.start();
   }
 });
+  ostsoutes
